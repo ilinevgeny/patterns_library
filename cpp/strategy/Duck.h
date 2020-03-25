@@ -6,9 +6,9 @@
 #define CPP_PATTERNS_DUCK_H
 
 
-class Duck {
+class Duck
+{
 
 };
-
 
 #endif //CPP_PATTERNS_DUCK_H
