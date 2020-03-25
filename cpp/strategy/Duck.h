@@ -5,10 +5,20 @@
 #ifndef CPP_PATTERNS_DUCK_H
 #define CPP_PATTERNS_DUCK_H
 
+#include "FlyBehavior.h"
+#include "QuackBehavior.h"
 
 class Duck
 {
 
+public:
+    FlyBehavior *flb;
+    QuackBehavior *quk;
+    Duck();
+
+    virtual void display() = 0;
+    void setFlyBehavior(FlyBehavior * flb);
+    void performFly();
 };
 
 #endif //CPP_PATTERNS_DUCK_H
