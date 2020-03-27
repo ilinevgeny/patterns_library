@@ -16,7 +16,7 @@ void WeatherAppMoscow::removeObserver(Observer * o)
 
 void WeatherAppMoscow::notifyObserver()
 {
-
+    
 }
 
 void WeatherAppMoscow::measurementsChanged()

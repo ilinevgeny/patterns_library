@@ -10,3 +10,6 @@ void StatisticDisplay::display()
 {
     std::cout << "\nDisplay Statistic\n";
 }
+
+StatisticDisplay::StatisticDisplay()
+{}

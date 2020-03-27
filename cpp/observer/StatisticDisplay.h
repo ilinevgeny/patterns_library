@@ -7,6 +7,8 @@
 class StatisticDisplay : public Observer
 {
 public:
+    StatisticDisplay();
+
     void update();
     void display();
 };
