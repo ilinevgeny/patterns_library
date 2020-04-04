@@ -3,9 +3,13 @@
 #include "strategy/FlyByRocket.h"
 #include "observer/WeatherAppMoscow.h"
 #include "observer/StatisticDisplay.h"
+#include <boost/thread.hpp>
+#include <boost/chrono.hpp>
 
 int main()
 {
+    std::cout << "start registering observers\n";
+
     WeatherAppMoscow * wApp = new WeatherAppMoscow();
     Observer * stat = new StatisticDisplay();
     wApp->registerObserver(stat);

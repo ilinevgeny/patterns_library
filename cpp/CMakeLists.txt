@@ -3,6 +3,12 @@ project(cpp_patterns)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(Boost_INCLUDE_DIR "g:/app/boost_1_69/include/boost-1_69")
+set(Boost_LIBRARY_DIR g:/app/boost_1_69/lib)
+#find_package(Boost COMPONENTS thread REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
+
 add_executable(cpp_patterns  main.cpp strategy/Duck.h
         observer/WeatherApp.h strategy/FlyBehavior.h
         strategy/QuackBehavior.h strategy/MallardDuck.cpp
