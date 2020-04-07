@@ -4,6 +4,7 @@
 
 void WeatherAppMoscow::registerObserver(Observer * o)
 {
+    std::cout << "Now, we registered object\n";
     this->observers.push_back(o);
 }
 
@@ -16,12 +17,15 @@ void WeatherAppMoscow::removeObserver(Observer * o)
 
 void WeatherAppMoscow::notifyObserver()
 {
-    
+    for (auto observer : this->observers)
+    {
+        observer->update(this->temperature);
+    }
 }
 
 void WeatherAppMoscow::measurementsChanged()
 {
-
+    this->notifyObserver();
 }
 
 void WeatherAppMoscow::getTemperature()
@@ -41,5 +45,11 @@ int WeatherAppMoscow::findObserverInVector(const std::vector<T> & observersConta
     auto it = std::find(observersContainer.begin(), observersContainer.end(), observer);
     index = std::distance(observersContainer.begin(), it);
     return index;
+}
+
+void WeatherAppMoscow::setMeasurements(int tempereture)
+{
+    this->temperature = tempereture;
+    this->measurementsChanged();
 }
 

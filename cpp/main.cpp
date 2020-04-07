@@ -3,6 +3,7 @@
 #include "strategy/FlyByRocket.h"
 #include "observer/WeatherAppMoscow.h"
 #include "observer/StatisticDisplay.h"
+#include "observer/ForecastDisplay.h"
 #include <boost/thread.hpp>
 #include <boost/chrono.hpp>
 
@@ -10,14 +11,18 @@ int main()
 {
     std::cout << "start registering observers\n";
 
-    WeatherAppMoscow * wApp = new WeatherAppMoscow();
-    Observer * stat = new StatisticDisplay();
-    wApp->registerObserver(stat);
+     WeatherAppMoscow * wApp = new WeatherAppMoscow();
+    Observer * stat = new StatisticDisplay(wApp);
+    Observer * forecast = new ForecastDisplay(wApp);
+    wApp->setMeasurements(20);
+    wApp->setMeasurements(74);
+    wApp->setMeasurements(33);
 
-    std::cout << "end registering observers\n";
+//    wApp->registerObserver(stat);
+    //std::cout << "end registering observers\n";
 
-    wApp->removeObserver(stat);
-    std::cout << "stop removing observers\n";
+    //wApp->removeObserver(stat);
+    std::cout << "stop observing observers\n";
     return 0;
 }
 

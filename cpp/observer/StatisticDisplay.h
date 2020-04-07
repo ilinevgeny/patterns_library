@@ -3,13 +3,17 @@
 
 
 #include "Observer.h"
+#include "DisplayElement.h"
+#include "WeatherApp.h"
 
-class StatisticDisplay : public Observer
+class StatisticDisplay : public Observer, public DisplayElement
 {
+private:
+    int m_temperature;
+    WeatherApp * wapp;
 public:
-    StatisticDisplay();
-
-    void update();
+    StatisticDisplay( WeatherApp * wapp );
+    void update(int temperature);
     void display();
 };
 

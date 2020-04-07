@@ -10,6 +10,7 @@ class WeatherAppMoscow : public WeatherApp
 {
 private:
     std::vector<Observer *> observers;
+    int temperature;
 public:
     WeatherAppMoscow();
     void registerObserver(Observer * o);
@@ -18,6 +19,7 @@ public:
 
     void measurementsChanged();
     void getTemperature();
+    void setMeasurements(int temperature);
     template < typename T >
     int findObserverInVector(const std::vector<T> & observersContainer, const T & observer);
 };
