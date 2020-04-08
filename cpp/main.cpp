@@ -1,11 +1,10 @@
-#include <iostream>
+#include "common.h"
 #include "strategy/MallardDuck.h"
 #include "strategy/FlyByRocket.h"
 #include "observer/WeatherAppMoscow.h"
 #include "observer/StatisticDisplay.h"
 #include "observer/ForecastDisplay.h"
-#include <boost/thread.hpp>
-#include <boost/chrono.hpp>
+
 
 int main()
 {

@@ -40,6 +40,7 @@ add_executable(cpp_patterns_strategy main.cpp strategy/Duck.h
         strategy/FlyByWings.cpp strategy/FlyByWings.h
         strategy/FlyByRocket.cpp strategy/FlyByRocket.h)
 
+add_executable(cpp_patterns_decorator main_decorator.cpp)
 # compile and link second app
 #add_executable(prg2 ${CommonSources} ${Prg2SpecificSources})
 #target_link_libraries(prg2 lib1 lib2 lib3)

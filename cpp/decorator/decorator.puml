@@ -1,0 +1,99 @@
+@startuml
+package Database <<Node>> {
+    interface DbConnection
+    {
+        + {abstract} void connect()
+        + {abstract} void setParams()
+        + {abstract} string getParams()
+    }
+
+    class PgSQLConnection
+    {
+        - string host
+        - string port
+        + void connect()
+        + void setParams()
+        + string getParams()
+    }
+
+    class MSSQLConnection
+    {
+        - string host
+        - string port
+        + void connect()
+        + void setParams()
+        + string getParams()
+    }
+
+    abstract class DecorationDbConnection
+    {
+        + connect()
+        + void setParams()
+        + string getParams()
+    }
+
+    DbConnection <|-- PgSQLConnection
+    DbConnection <|-- MSSQLConnection
+
+    DecorationDbConnection "one" *-up- "many" DbConnection: Composition
+
+    class DbConnectionOverSSH
+    {
+        - DbConnection __dbcon
+        - sshHost
+        - sshPort
+        -- constructor --
+        +DbConnectionOverSSH(DbConnection)
+        ----
+        + connect()
+        + sshConnect()
+        + void setParams()
+    }
+    DecorationDbConnection <|-- DbConnectionOverSSH: Inheritance
+    note left #ff0
+            DbConnection *client = new PgSQLConnection();
+            client = new DbConnectionOverSSH(client);
+            client->connect();
+            --
+            DbConnectionOverSSH
+            . . .
+            connect()
+            {
+                this->sshConnect();
+                this->__dbcon->connect();
+            }
+            ...
+            DbConnectionByServerDB
+            . . .
+            connect()
+            {
+                this->__dbcon->connect();
+            }
+            --
+            DBClient *client = new DBClient();
+            client = new DbConnectionByServerDB(client);
+            client->connect();
+    end note
+    class DbConnectionByServerDB
+    {
+         - DBClient __dbcon
+         + connect()
+    }
+    DecorationDbConnection <|-- DbConnectionByServerDB: Inheritance
+    allowmixing
+    component [Data Access]
+}
+
+
+'package GUI <<Node>>
+'{
+'    class MainWindow
+'}
+'package ExportParams <<Node>>
+'{
+'    class ExportParams
+'}
+'allowmixing
+'component [Business Logic]
+'component [GUI]
+@enduml
