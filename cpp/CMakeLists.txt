@@ -40,7 +40,8 @@ add_executable(cpp_patterns_strategy main.cpp strategy/Duck.h
         strategy/FlyByWings.cpp strategy/FlyByWings.h
         strategy/FlyByRocket.cpp strategy/FlyByRocket.h)
 
-add_executable(cpp_patterns_decorator main_decorator.cpp)
+add_executable(cpp_patterns_decorator main_decorator.cpp decorator/DbConnection.h decorator/PgSQLConnection.cpp decorator/PgSQLConnection.h decorator/DbConnectionOverSSH.cpp decorator/DbConnectionOverSSH.h)
+add_executable(cpp_interface InterfaceVsAbstractCpp/main_interface.cpp)
 # compile and link second app
 #add_executable(prg2 ${CommonSources} ${Prg2SpecificSources})
 #target_link_libraries(prg2 lib1 lib2 lib3)
