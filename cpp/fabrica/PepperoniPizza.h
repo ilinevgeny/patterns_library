@@ -1,0 +1,11 @@
+#ifndef CPP_PATTERNS_PEPPERONIPIZZA_H
+#define CPP_PATTERNS_PEPPERONIPIZZA_H
+
+
+class PepperoniPizza
+{
+
+};
+
+
+#endif //CPP_PATTERNS_PEPPERONIPIZZA_H

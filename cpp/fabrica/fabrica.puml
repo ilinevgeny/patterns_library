@@ -1,0 +1,48 @@
+@startuml
+allowmixing
+package SimpleFactory <<Node>>
+{
+    interface Pizza
+    {
+        + {abstract} virtual void prepare();
+        + {abstract} virtual void bake();
+        + {abstract} virtual void box();
+    }
+
+    class CheesePizza
+    {
+       + void prepare();
+       + void bake();
+       + void box();
+    }
+
+    class PepperoniPizza
+    {
+       + void prepare();
+       + void bake();
+       + void box();
+    }
+
+    Pizza <|-- CheesePizza
+    Pizza <|-- PepperoniPizza
+
+    class SimplePizzaFactory
+    {
+        + Pizza* createPizza(string typePizza)
+    }
+
+    class PizzaStore
+    {
+        - SimplePizzaFactory* factory
+        --
+        + PizzaStore(SimplePizzaFactory)
+        --
+        + Pizza orderPizza(string typePizza)
+    }
+
+    PizzaStore --* SimplePizzaFactory
+    'PizzaStore --o SimplePizzaFactory
+    PizzaStore --o Pizza
+    SimplePizzaFactory --o Pizza
+}
+@enduml
