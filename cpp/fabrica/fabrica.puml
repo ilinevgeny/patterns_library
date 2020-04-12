@@ -45,4 +45,40 @@ package SimpleFactory <<Node>>
     PizzaStore --o Pizza
     SimplePizzaFactory --o Pizza
 }
+allowmixing
+package ImproveFactory <<Node>>
+{
+    interface IPizza
+        {
+            + {abstract} virtual void prepare();
+            + {abstract} virtual void bake();
+            + {abstract} virtual void box();
+        }
+
+        class ICheesePizza
+        {
+           + void prepare();
+           + void bake();
+           + void box();
+        }
+
+        class IPepperoniPizza
+        {
+           + void prepare();
+           + void bake();
+           + void box();
+        }
+
+         IPizza <|-- ICheesePizza
+         IPizza <|-- IPepperoniPizza
+
+        class IPizzaStore
+           {
+               - SimplePizzaFactory* factory
+               --
+               + PizzaStore(SimplePizzaFactory)
+               --
+               + Pizza orderPizza(string typePizza)
+           }
+}
 @enduml

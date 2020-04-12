@@ -1,6 +1,6 @@
 #include "PizzaStore.h"
 
-PizzaStore::PizzaStore(SimplePizzaFactory &factory) : __factory(factory)
+PizzaStore::PizzaStore(SimplePizzaFactory &factory) : factory_(factory)
 {
     //this->__factory = factory;
 }
@@ -8,7 +8,7 @@ PizzaStore::PizzaStore(SimplePizzaFactory &factory) : __factory(factory)
 Pizza* PizzaStore::createPizza(std::string typePizza)
 {
     Pizza* pizza;
-    pizza = this->__factory.createPizza(CheesePizzaType);
+    pizza = this->factory_.createPizza(CheesePizzaType);
     pizza->box();
     return pizza;
 }

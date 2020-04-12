@@ -9,7 +9,7 @@ public:
     PizzaStore(SimplePizzaFactory &factory);
     Pizza* createPizza(std::string typePizza);
 private:
-    SimplePizzaFactory& __factory;
+    SimplePizzaFactory& factory_;
 };
 
 
