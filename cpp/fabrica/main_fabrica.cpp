@@ -11,6 +11,7 @@ int main()
     SimplePizzaFactory factory;
     PizzaStore *mosPizza = new PizzaStore(reinterpret_cast<SimplePizzaFactory &>(factory));
     mosPizza->createPizza(CheesePizzaType);
+
     std::cout << "finish fabrica pattern";
     return 0;
 }

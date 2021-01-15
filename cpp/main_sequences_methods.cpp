@@ -8,7 +8,7 @@ class Bowl
 public:
     Bowl();
     FirstStep* crackEggs();
-    SecondStep* addEggs(FirstStep* firstStep);
+    SecondStep* addEggs();
     void addButter();
     bool areUNextComponent(int youNum);
     std::string stateProcess;
@@ -37,7 +37,7 @@ FirstStep* Bowl::crackEggs()
     }
 }
 
-SecondStep* Bowl::addEggs(FirstStep* firstStep)
+SecondStep* Bowl::addEggs()
 {
     int myQueue = 2;
     if(this->areUNextComponent(myQueue))
@@ -83,8 +83,9 @@ void CakeFactory::addComponents()
 {
     try
     {
-        this->bowl_->addEggs();
+
         this->bowl_->crackEggs();
+        this->bowl_->addEggs();
         this->bowl_->addButter();
     } catch (...)
     {

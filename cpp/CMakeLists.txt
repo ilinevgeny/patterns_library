@@ -17,8 +17,8 @@ if(WIN32)
 
 
 endif()
-set(Boost_INCLUDE_DIR "g:/app/boost_1_69/include/boost-1_69")
-set(Boost_LIBRARY_DIR g:/app/boost_1_69/lib)
+set(Boost_INCLUDE_DIR "g:/app/boost_1_74/include/boost-1_74")
+set(Boost_LIBRARY_DIR g:/app/boost_1_74/lib)
 #find_package(Boost COMPONENTS thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
