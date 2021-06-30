@@ -12,4 +12,5 @@ void MallardDuck::display()
 MallardDuck::MallardDuck()
 {
     this->flb = new FlyByWings();
+    this->quk = new QuackVoice();
 };

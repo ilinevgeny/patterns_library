@@ -7,6 +7,7 @@
 
 #include "Duck.h"
 #include "FlyByWings.h"
+#include "QuackVoice.h"
 class MallardDuck : public Duck
 {
 public:

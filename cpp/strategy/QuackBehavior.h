@@ -6,6 +6,6 @@
 #define CPP_PATTERNS_QUACKBEHAVIOR_H
 struct QuackBehavior
 {
-    void quack();
+    virtual void quack() = 0;
 };
 #endif //CPP_PATTERNS_QUACKBEHAVIOR_H

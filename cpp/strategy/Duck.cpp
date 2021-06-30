@@ -12,6 +12,16 @@ void Duck::performFly()
     this->flb->fly();
 }
 
+void Duck::setQuackStyle(QuackBehavior *quk)
+{
+    this->quk = quk;
+}
+
+void Duck::canQuack()
+{
+    this->quk->quack();
+}
+
 
 
 

@@ -10,7 +10,7 @@ int main()
 {
     std::cout << "start registering observers\n";
 
-     WeatherAppMoscow * wApp = new WeatherAppMoscow();
+    WeatherAppMoscow * wApp = new WeatherAppMoscow();
     Observer * stat = new StatisticDisplay(wApp);
     Observer * forecast = new ForecastDisplay(wApp);
     wApp->setMeasurements(20);
@@ -24,11 +24,3 @@ int main()
     std::cout << "stop observing observers\n";
     return 0;
 }
-
-//Duck *d = new MallardDuck();
-//d->display();
-//d->performFly();
-//d->setFlyBehavior(new FlyByRocket());
-//std::cout << "\n___Change flying mode___\n";
-//d->performFly();
-//std::cout << "Strategy pattern has been completed!";

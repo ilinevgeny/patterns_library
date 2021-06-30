@@ -19,6 +19,8 @@ public:
     virtual void display() = 0;
     void setFlyBehavior(FlyBehavior * flb);
     void performFly();
+    void setQuackStyle(QuackBehavior * quk);
+    void canQuack();
 };
 
 #endif //CPP_PATTERNS_DUCK_H

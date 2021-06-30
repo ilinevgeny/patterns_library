@@ -17,8 +17,8 @@ if(WIN32)
 
 
 endif()
-set(Boost_INCLUDE_DIR "g:/app/boost_1_74/include/boost-1_74")
-set(Boost_LIBRARY_DIR g:/app/boost_1_74/lib)
+set(Boost_INCLUDE_DIR "g:/app/boost_1_76/include/")
+set(Boost_LIBRARY_DIR g:/app/boost_1_76/lib)
 #find_package(Boost COMPONENTS thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
@@ -31,17 +31,28 @@ add_executable(cpp_patterns_observer  main.cpp
         observer/Observer.h
         observer/DisplayElement.h
         observer/StatisticDisplay.cpp
-        observer/StatisticDisplay.h observer/ForecastDisplay.cpp observer/ForecastDisplay.h)
+        observer/StatisticDisplay.h
+        observer/ForecastDisplay.cpp
+        observer/ForecastDisplay.h)
 
-add_executable(cpp_patterns_strategy main.cpp strategy/Duck.h
+add_executable(cpp_patterns_strategy strategy/main_strategy.cpp
+        strategy/Duck.h
         strategy/FlyBehavior.h
         strategy/QuackBehavior.h strategy/MallardDuck.cpp
         strategy/MallardDuck.h strategy/Duck.cpp
         strategy/FlyByWings.cpp strategy/FlyByWings.h
-        strategy/FlyByRocket.cpp strategy/FlyByRocket.h)
+        strategy/FlyByRocket.cpp strategy/FlyByRocket.h
+        strategy/QuackVoice.cpp strategy/QuackVoice.h strategy/QuackSilent.cpp strategy/QuackSilent.h)
 
-add_executable(cpp_patterns_decorator main_decorator.cpp decorator/DbConnection.h decorator/PgSQLConnection.cpp decorator/PgSQLConnection.h decorator/DbConnectionOverSSH.cpp decorator/DbConnectionOverSSH.h)
+add_executable(cpp_patterns_decorator main_decorator.cpp
+        decorator/DbConnection.h
+        decorator/PgSQLConnection.cpp
+        decorator/PgSQLConnection.h
+        decorator/DbConnectionOverSSH.cpp
+        decorator/DbConnectionOverSSH.h)
+
 add_executable(cpp_interface InterfaceVsAbstractCpp/main_interface.cpp)
+
 add_executable(cpp_patterns_fabrica
         fabrica/main_fabrica.cpp
         fabrica/CheesePizza.cpp
@@ -51,7 +62,9 @@ add_executable(cpp_patterns_fabrica
         fabrica/PizzaStore.h
         fabrica/PepperoniPizza.cpp
         fabrica/PepperoniPizza.h)
+
 add_executable(cpp_sequences main_sequences_methods.cpp)
+
 # compile and link second app
 #add_executable(prg2 ${CommonSources} ${Prg2SpecificSources})
 #target_link_libraries(prg2 lib1 lib2 lib3)
